@@ -1,5 +1,6 @@
 <h3>Welcome to PokePortal</h3>
 <p><%= link_to 'Trainers:', trainers_path %> <%= Trainer.count %> registered</p>
+  <%= button_to "Trainer Profile", trainer_path, :class => "button medium", :method => :get %>
 
 <% if @pokemon and current_trainer %>
   <% if @pokemon.ndex %>
@@ -7,7 +8,8 @@
   <% end %>
   <p> A wild <%= @pokemon.name %> has appeared!</p>
   <!-- REPLACE THIS LINE BELOW -->
-  <div>THIS SHALL BE REPLACED</div>
+  <!-- <div>THIS SHALL BE REPLACED</div> -->
+  <%= button_to "Throw a Pokeball!", capture_path(id: @pokemon), :class => "button medium", :method => :patch %>
 <% end %>
 
 <%= image_tag("pokemon/pokemon-family.jpg", :alt => "pokemon") %>

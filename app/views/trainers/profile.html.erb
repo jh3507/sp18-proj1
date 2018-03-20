@@ -1,0 +1,8 @@
+
+  <%= button_to "Create Pokemon!", new_path, :class => "button medium", :method => :get %>
+<% @pokemons.each do |t| %>
+  <% if t.ndex %>
+    <%= image_tag("pokemon/#{t.ndex}.png", alt: "pokemon") %>
+  <% end %>
+    <li><%= t.name %>&ensp;<%= t.level %>&ensp;<%= t.health %><%= button_to "Damage!", damage_path(id: t.id), :class => "button medium", :method => :patch %></li>
+<% end %>
